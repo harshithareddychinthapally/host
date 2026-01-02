@@ -1,67 +1,282 @@
-<ul style ="list-style-type: square;">
-    <li>ruby</li>
-    <li>c</li>
-    <li>c++</li>
-    <li>python</li>
-    <li>.net</li>
-
-</ul>
- <ol type="A" start="6">  
-
-    <li>css</li>
-    <li>bootstrap</li>
-    <li>javascript</li>
-    <li>.net</li>
-
-</ol>
-<dl>
-    <dt>c language </dt>
-    <dd>developed by---</dd>
-</dl>
-<dl>
-    <dt>python language </dt>
-    <dd>developed by---</dd>
-</dl>
-<ol style ="list-style: none;">
-    <li>ruby</li>
-    <li>c</li>
-    <li>c++</li>
-    <li>python</li>
-    <li>.net</li>
-
-</ol>
-<ol type="A"">
-    <li>ruby</li>
-    <li>c</li>
-    <li>c++</li>
-    <li>python</li>
-    <li>.net</li>
-
-</ol>
-<ol type="1"">
-    <li>ruby</li>
-    <li>c</li>
-    <li>c++</li>
-    <li>python</li>
-    <li>.net</li>
-
-</ol>
-<ol style ="list-style: none;">
-    <li>ruby</li>
-    <li>c</li>
-    <li>c++</li>
-    <li>python</li>
-    <li>.net</li>
-
-</ol>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Landing Page</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #053fc6;
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #9e38f8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: #5838f8;
+      color: #0f172a;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #9e38f8;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: #4238f8;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      color: #0f172a;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #3b38f8;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    /* Feedback Form */
+    .feedback-form {
+      max-width: 600px;
+      margin: 40px auto 0;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .feedback-form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .feedback-form button {
+      width: 100%;
+      padding: 12px;
+      background: #5838f8;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .feedback-form button:hover {
+      background: white;
+      color: #0f172a;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 10%;
+        background: rgba(15, 23, 42, 0.95);
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: white;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <a href="https://www.google.com/">google</a>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="logo">MyPage</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Welcome to MyPage</h1>
+      <p>We build modern, responsive, and interactive websites that bring your ideas to life.</p>
+      <button class="btn">Get Started</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We specialize in creating responsive and user-friendly websites with modern design principles.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>Web development, UI/UX design, and digital solutions built using modern technologies.</p>
+  </section>
+
+  <!-- Feedback -->
+  <section id="feedback">
+    <h2>Feedback</h2>
+    <p>Your feedback helps us improve. Please share your thoughts.</p>
+
+    <form
+      class="feedback-form"
+      action="https://formspree.io/f/mdakgayl"
+      method="POST"
+    >
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Your Feedback" required></textarea>
+      <button type="submit">Send Feedback</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Technology. All Rights Reserved.
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+
 </body>
 </html>
